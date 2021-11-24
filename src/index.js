@@ -58,7 +58,7 @@ for (const dog of data) {
 }
 
 
-function addDog(){
+function addDog(data){
 
     const dogSection = document.createElement('section')
     dogSection.setAttribute('class', 'main__dog-section')
@@ -93,8 +93,33 @@ function addDog(){
     inputElement3.setAttribute('id', 'bio')
     inputElement3.setAttribute('name', 'bio')
 
-    formElement.append(labelElement, inputElement, labelElement2,inputElement2, labelElement3 ,inputElement3,  )
+    const addButton = document.createElement('input')
+    addButton.setAttribute('type', 'submit')
+    addButton.setAttribute('id', 'submit')
+    addButton.setAttribute('name', 'submit')
+    addButton.setAttribute('value', "Let's add a dog!")
+    addButton.setAttribute('class', 'form__button')
+
+    formElement.append(labelElement, inputElement, labelElement2,inputElement2, labelElement3 ,inputElement3, addButton )
     dogSection.append(addDogH2 ,formElement)
+
+
+    formElement.addEventListener('submit', function(event){
+        event.preventDefault()
+    })
+
+    const listElement = document.querySelector(".dogs-list")
+
+    const headerLiElement = document.createElement('li')
+    headerLiElement.setAttribute('class', 'dogs-list__button')
+    headerLiElement.textContent = listElement.name.value
+
+
+    headerLiElement.addEventListener('click', function(event){
+        formElement.remove()
+    })
+
+    listElement.append(headerLiElement)
 }
 
 
@@ -104,4 +129,4 @@ function addDog(){
 //     const allListElement = document.querySelector(".dogs-list__button dogs-list__button--add")
 // }
 
-addDog()
+addDog(data)
