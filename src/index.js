@@ -30,21 +30,21 @@ function getDog(data){
     const emEl = document.createElement('em')
     emEl.textContent = "Is naughty? "
 
-    const secondDogParagraph = document.createElement('p')
-    secondDogParagraph.append(emEl)
-    secondDogParagraph.textContent += " Yes!"
-
     const btnEl = document.createElement('button')
     btnEl.textContent = "Good dog!"
 
+    const secondDogParagraph = document.createElement('p')
+    secondDogParagraph.textContent = data.isGoodDog
+
+    secondDogParagraph.append(emEl, btnEl)
+  
+
 
     const dogSectionDescription= document.createElement('div')
-    dogSectionDescription.textContent = (data.isGoodDog)
     dogSectionDescription.setAttribute("class", "main__dog-section__btn")
 
-    dogSection.append(dogName, dogImage, dogdDescription ,dogSectionDescription )
+    dogSection.append(dogName, dogImage, dogdDescription ,dogSectionDescription, secondDogParagraph)
     
-    // dogListButton.append(dogSection)
     dogListElements.append(dogSection)
    
 }
