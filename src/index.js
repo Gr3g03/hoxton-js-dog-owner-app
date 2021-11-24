@@ -2,6 +2,7 @@
 
 function getDog(data){
 
+    // infosection.innerHTML='dogListElements'
     const dogListElements = document.querySelector(".main")
     
     const dogSection = document.createElement('section')
@@ -58,6 +59,7 @@ for (const dog of data) {
 }
 
 
+
 function addDog(data){
 
     const dogSection = document.createElement('section')
@@ -107,26 +109,43 @@ function addDog(data){
     formElement.addEventListener('submit', function(event){
         event.preventDefault()
     })
-
+         
     const listElement = document.querySelector(".dogs-list")
 
     const headerLiElement = document.createElement('li')
     headerLiElement.setAttribute('class', 'dogs-list__button')
-    headerLiElement.textContent = listElement.name.value
+    headerLiElement.textContent = data.name
+
+    listElement.append(headerLiElement)
 
 
     headerLiElement.addEventListener('click', function(event){
         formElement.remove()
     })
+    
 
-    listElement.append(headerLiElement)
+    
+
+
+  
 }
 
+function headerDogMenu(data){
+    const listElement = document.querySelector(".dogs-list")
+    const headerLiElement = document.createElement('li')
+    headerLiElement.setAttribute('class', 'dogs-list__button')
+    headerLiElement.textContent = data.name
+    listElement.append(headerLiElement)
 
-// function headerDogMenu(){
-//     const headerEl = document.querySelector(".header")
-//     const listElement = document.querySelector(".dogs-list")
-//     const allListElement = document.querySelector(".dogs-list__button dogs-list__button--add")
-// }
+
+
+    listElement.append()
+    
+}
 
 addDog(data)
+
+
+
+
+
